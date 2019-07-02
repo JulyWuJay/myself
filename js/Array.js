@@ -24,21 +24,6 @@ function indexOfSecond(arr){
     return newArr;
 }
 console.log(indexOfSecond(originArray));
-// 双层for循环 
-// function doubleFor(arr) {
-//     let newArr = [];
-//     for ( let i = 0 ; i < arr.length ; i++) {
-//         for (let j = i+1  ; j < arr.length ; j++){
-//             if (arr[i] != arr[j] ){
-//                 newArr.push(arr[i]);
-//             } else {
-
-//             }
-//         }
-//     }
-//     return newArr;
-// }
-// console.log(doubleFor(originArray));
 
 // 对象键值法去重 速度最快，但占用内存高
 function objectKeyValue(arr) {
@@ -80,3 +65,24 @@ function sortAdd(arr) {
     return newArr;
 }
 console.log(sortAdd(originArray));
+
+// 双层for循环 
+console.log('双重for')
+function doubleFor(arr) {
+    let newArr = [];
+    newArr = JSON.parse(JSON.stringify(arr));
+    // newArr = newArr.concat(arr)
+    for ( let i = 0 ; i < newArr.length ; i++) {
+        for (let j = i+1  ; j < newArr.length ; j++){
+            if (newArr[i] == newArr[j] ){
+                newArr.splice(j,1);
+                j--;
+                i--;
+            }
+        }
+    }
+    return newArr;
+}
+console.log(doubleFor(originArray));
+// console.log(originArray);
+console.log('----------------------分割线---------------------------')
